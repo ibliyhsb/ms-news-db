@@ -1,6 +1,6 @@
 package cl.duoc.ms_news_db.controller;
 
-import cl.duoc.ms_news_db.model.NewsArticle;
+import cl.duoc.ms_news_db.model.dto.NewsArticleDto;
 import cl.duoc.ms_news_db.service.NewsArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,24 +15,24 @@ public class NewsArticleController {
     private NewsArticleService newsArticleService;
 
     @GetMapping
-    public List<NewsArticle> getAll() {
+    public List<NewsArticleDto> getAll() {
         return newsArticleService.getAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<NewsArticle> getById(@PathVariable Long id) {
+    public ResponseEntity<NewsArticleDto> getById(@PathVariable Long id) {
         return newsArticleService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public NewsArticle create(@RequestBody NewsArticle article) {
+    public NewsArticleDto create(@RequestBody NewsArticleDto article) {
         return newsArticleService.save(article);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<NewsArticle> update(@PathVariable Long id, @RequestBody NewsArticle article) {
+    public ResponseEntity<NewsArticleDto> update(@PathVariable Long id, @RequestBody NewsArticleDto article) {
         return newsArticleService.getById(id)
                 .map(existing -> {
                     article.setId(id);
