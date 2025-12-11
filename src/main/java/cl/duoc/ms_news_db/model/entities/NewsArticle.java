@@ -15,9 +15,12 @@ public class NewsArticle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String source;
+    private String titulo;
+    private String descripcion;
     @Column(length = 2000)
-    private String content;
-    private String url;
+    private String contenido;
+    private String autor;
+    private String fechaPublicacion;
+    private Boolean esPublicado;
+    private String imagenUri;
 }

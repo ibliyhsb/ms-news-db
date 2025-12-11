@@ -10,8 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class NewsArticleDto {
     private Long id;
-    private String title;
-    private String source;
-    private String content;
-    private String url;
+    private String titulo;
+    private String descripcion;
+    private String contenido;
+    private String autor;
+    private String fechaPublicacion;
+    private Boolean esPublicado;
+    private String imagenUri;
 }

@@ -38,20 +38,26 @@ public class NewsArticleService {
     private NewsArticleDto toDto(NewsArticle entity) {
         return new NewsArticleDto(
                 entity.getId(),
-                entity.getTitle(),
-                entity.getSource(),
-                entity.getContent(),
-                entity.getUrl()
+                entity.getTitulo(),
+                entity.getDescripcion(),
+                entity.getContenido(),
+                entity.getAutor(),
+                entity.getFechaPublicacion(),
+                entity.getEsPublicado(),
+                entity.getImagenUri()
         );
     }
 
     private NewsArticle toEntity(NewsArticleDto dto) {
         NewsArticle entity = new NewsArticle();
         entity.setId(dto.getId());
-        entity.setTitle(dto.getTitle());
-        entity.setSource(dto.getSource());
-        entity.setContent(dto.getContent());
-        entity.setUrl(dto.getUrl());
+        entity.setTitulo(dto.getTitulo());
+        entity.setDescripcion(dto.getDescripcion());
+        entity.setContenido(dto.getContenido());
+        entity.setAutor(dto.getAutor());
+        entity.setFechaPublicacion(dto.getFechaPublicacion());
+        entity.setEsPublicado(dto.getEsPublicado());
+        entity.setImagenUri(dto.getImagenUri());
         return entity;
     }
 }
